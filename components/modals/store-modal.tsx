@@ -41,7 +41,8 @@ export const StoreModal = () => {
 
       const response = await axios.post('/api/stores', values)
 
-      toast.success("Store created.")
+      // I have used window object so that my page can reload so that after reload data go into sync with databse, that's why I have not used router
+      window.location.assign(`/${response.data.id}`)
     } catch(err) {
       toast.error("Something went wrong")
     } finally {
